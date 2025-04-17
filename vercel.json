@@ -1,19 +1,18 @@
 {
-    "cleanUrls": true,
-    "headers": [
-      {
-        "source": "/tonconnect-manifest.json",
-        "headers": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/tonconnect-manifest.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/tonconnect-manifest.json",
+      "destination": "/tonconnect-manifest.json"
+    }
+  ]
+}
