@@ -1,7 +1,7 @@
 {
   "manifest_version": "1",
   "name": "TON Wallet Subscription",
-  "url": "https://ton-payment-frontend-ktg30qyt6-akinbolajis-projects-20dde10e.vercel.app",
+  "url": "https://ton-payment-frontend-e40bssfpn-akinbolajis-projects-20dde10e.vercel.app",
   "icon_url": "https://raw.githubusercontent.com/ton-blockchain/tonconnect-docs/main/logo.svg",
   "terms_url": "https://ton.org/terms",
   "privacy_url": "https://ton.org/privacy",
