@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/tonconnect-manifest.json",
+      "destination": "/tonconnect-manifest.json"
+    }
+  ],
   "headers": [
     {
       "source": "/tonconnect-manifest.json",
