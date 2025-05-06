@@ -1,7 +1,7 @@
 {
   "url": "https://ton-payment-frontend.vercel.app",
   "name": "TON Wallet Subscription",
-  "iconUrl": "https://raw.githubusercontent.com/ton-blockchain/tonconnect-docs/main/logo.svg",
+  "iconUrl": "https://ton-payment-frontend.vercel.app/favicon.ico",
   "termsOfUseUrl": "https://ton.org/terms",
   "privacyPolicyUrl": "https://ton.org/privacy"
 }
