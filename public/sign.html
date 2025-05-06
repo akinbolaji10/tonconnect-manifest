@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TON Wallet Sign</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TON Connect UI Library -->
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0c29;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    #ton-connect {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #00e0ff;
+      color: #000;
+    }
+    button:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connect Your TON Wallet</h1>
+  <div id="ton-connect"></div>
+  <button id="sign-btn" disabled>Sign Transaction</button>
+
+  <script>
+    // Initialize TON Connect UI
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: 'https://ton-wallet-payments.vercel.app/tonconnect-manifest.json',
+      buttonRootId: 'ton-connect'
+    });
+
+    const signBtn = document.getElementById('sign-btn');
+
+    // Enable sign button upon wallet connection
+    tonConnectUI.onStatusChange(wallet => {
+      signBtn.disabled = !wallet;
+    });
+
+    // Handle sign button click
+    signBtn.addEventListener('click', async () => {
+      try {
+        const transaction = {
+          validUntil: Math.floor(Date.now() / 1000) + 600,
+          messages: [
+            {
+              address: 'UQBP1Ue44jVdu1Zc1sOFzsVnpnOZPFIzfA4eMCvjbpFd50bN',
+              amount: (0.5 * 1e9).toString() // 0.5 TON in nanotons
+            }
+          ]
+        };
+
+        const result = await tonConnectUI.sendTransaction(transaction);
+        alert('Transaction sent successfully!');
+        console.log('Transaction result:', result);
+      } catch (error) {
+        console.error('Transaction failed:', error);
+        alert('Transaction failed. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
